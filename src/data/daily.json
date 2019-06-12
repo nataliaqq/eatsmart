@@ -1,0 +1,68 @@
+[
+	{ 
+		"name": "energy",
+		"daily_val": "2000",
+		"consume": "1800-2200"
+	},
+	{ 
+		"name": "protein",
+		"daily_val": "50",
+		"consume": "45-55"
+	},
+	{ 
+		"name": "total lipid (fat)",
+		"daily_val": "70"
+	},
+	{ 
+		"name": "saturated fatty acids",
+		"daily_val": "24"
+	},
+	{ 
+		"name": "carbohydrate, by difference",
+		"daily_val": "310"
+	},
+	{ 
+		"name": "sugars, total",
+		"daily_val": "90"
+	},
+	{ 
+		"name": "sodium, na",
+		"daily_val": "2.3"
+	},
+	{ 
+		"name": "fiber, total dietary",
+		"daily_val": "30"
+	},
+	{ 
+		"name": "calcium, ca",
+		"daily_val": "0"
+	},
+	{ 
+		"name": "iron, fe",
+		"daily_val": "0"
+	},
+	{ 
+		"name": "vitamin c, total ascorbic acid",
+		"daily_val": "0"
+	},
+	{ 
+		"name": "vitamin a, iu",
+		"daily_val": "0"
+	},
+	{ 
+		"name": "fatty acids, total saturated",
+		"daily_val": "0"
+	},
+	{ 
+		"name": "cholesterol",
+		"daily_val": "0"
+	},
+	{ 
+		"name": "potassium, k",
+		"daily_val": "0"
+	},
+	{
+		"name": "Fatty acids, total trans",
+		"daily_val": "0"
+	}
+]
