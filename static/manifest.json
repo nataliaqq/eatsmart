@@ -1,10 +1,8 @@
 {
   "short_name": "Eat.",
   "name": "Eat.Smarter",
-  "icons": [
-    
-  ],
   "start_url": "",
   "background_color": "#ffffff",
   "display": "standalone",
   "theme_color": "#ffffff"
+ }
