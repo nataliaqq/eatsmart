@@ -57,6 +57,7 @@ input {
     padding: 10px;
     font-size: 20px;
     width: 100%;
+    max-width: 200px;
     margin: 0 10px;
 }
 
