@@ -18,17 +18,26 @@
     <button @click="add()">
         Add to daily list
     </button>
+
+    <TimeActivator />
+
+   
 </div>
 </template>
 
 <script>
 
+import TimeActivator from './TimeActivator'
 export default {
     name: 'InputValue',
     data () {
         return {
            consumedValue: 100
         }
+    },
+
+    components: {
+        TimeActivator
     },
 
     methods: {
