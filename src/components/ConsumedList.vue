@@ -128,8 +128,7 @@ export default {
             if (!item.consume.includes('-')) return
             var min = +item.consume.split('-')[0]
             var max = +item.consume.split('-')[1]
-
-            return item.val > min && item.val < max
+            return item.val >= min && item.val <= max
         }
     },
 
