@@ -2,7 +2,7 @@
  <div>
     <div v-if="consumedList.length > 0">
         You consumed in last 24 h:
-        <div v-for="item in consumedList"> 
+        <div v-for="item in consumedListSorted"> 
             <div class="flex">
                 <div class="">
                     {{ item.name }} - {{ item.value }}g
@@ -81,6 +81,12 @@ export default {
                 const findField = (name) => this.daily.find(a => a.name.toLowerCase() === name.toLowerCase())
                 r.daily_val =  findField(r.name) ? findField(r.name).daily_val : 0
                 r.consume =  findField(r.name) ? findField(r.name).consume : ''
+            })
+        },
+
+        consumedListSorted () {
+            return this.consumedList.sort((a, b) => {
+              return a.time - b.time
             })
         },
 
