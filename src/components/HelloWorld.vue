@@ -21,6 +21,14 @@
         v-if="state === 'show-list'"
     />
 
+    <div
+        v-if="state === 'add-element'"
+        @click="changeState('show-list')"
+    >
+        <br>
+        <<< Back to list
+    </div>
+
   </div>
 </template>
 

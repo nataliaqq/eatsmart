@@ -1,11 +1,14 @@
 <template>
  <div>
+    <div v-if="consumedList.length <= 0" class="flex-center">
+        Your daily list is empty. Add some food.
+    </div>
     <div v-if="consumedList.length > 0">
-        You consumed in last 24 h:
+        You consumed within last 24 h:
         <div v-for="item in consumedListSorted"> 
             <div class="flex">
                 <div class="">
-                    {{ item.name }} - {{ item.value }}g
+                    {{ item.name }} - {{ item.value }}g/ml
                 </div>
                 <div class="remove" @click="remove(item)">
                     x
@@ -19,7 +22,7 @@
     <br>
     
     <div v-if="totalWithDaily.length > 0">
-        Your total nutrients / daily recommended 
+        Your total nutrients / daily recommended / %
         <div class="table">
             <div v-for="item in totalNutrients" class="row"> 
                 <div class="cell">{{ item.name }}</div>
@@ -29,7 +32,12 @@
                 >
                     {{ item.val | round }} {{ item.unit }}
                 </div>
-                <div class="cell" v-if="item.daily_val">{{ item.daily_val | round }} g </div>
+                <div class="cell" v-if="item.daily_val">
+                    {{ item.daily_val | round }} {{ item.ru }}
+                </div>
+                <div class="cell" v-if="item.daily_val && item.daily_val > 0">
+                    {{ item.val / item.daily_val * 100 | round }}%
+                </div>
             </div>
         </div>
     </div>
@@ -81,6 +89,7 @@ export default {
                 const findField = (name) => this.daily.find(a => a.name.toLowerCase() === name.toLowerCase())
                 r.daily_val =  findField(r.name) ? findField(r.name).daily_val : 0
                 r.consume =  findField(r.name) ? findField(r.name).consume : ''
+                r.ru =  findField(r.name) ? findField(r.name).ru : ''
             })
         },
 

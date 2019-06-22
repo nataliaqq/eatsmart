@@ -33,6 +33,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .bottom-bar {
+    cursor: pointer;
     background-color: #ededed;
     position: fixed;
     bottom: 0;

@@ -2,36 +2,45 @@
 	{ 
 		"name": "energy",
 		"daily_val": "2000",
-		"consume": "1800-2200"
+		"consume": "1800-2200",
+		"ru": "kcal"
 	},
 	{ 
 		"name": "protein",
 		"daily_val": "50",
-		"consume": "45-55"
+		"consume": "45-55",
+		"ru": "g"
 	},
 	{ 
 		"name": "total lipid (fat)",
-		"daily_val": "70"
+		"daily_val": "70",
+		"ru": "g"
 	},
 	{ 
 		"name": "saturated fatty acids",
-		"daily_val": "24"
+		"daily_val": "24",
+		"ru": "g"
 	},
 	{ 
 		"name": "carbohydrate, by difference",
-		"daily_val": "310"
+		"daily_val": "310",
+		"ru": "g"
 	},
 	{ 
 		"name": "sugars, total",
-		"daily_val": "90"
+		"daily_val": "90",
+		"ru": "g"
 	},
 	{ 
 		"name": "sodium, na",
-		"daily_val": "2.3"
+		"daily_val": "2300",
+		"consume": "0-2300",
+		"ru": "mg"
 	},
 	{ 
 		"name": "fiber, total dietary",
-		"daily_val": "30"
+		"daily_val": "30",
+		"ru": "g"
 	},
 	{ 
 		"name": "calcium, ca",
