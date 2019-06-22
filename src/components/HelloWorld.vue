@@ -67,7 +67,7 @@ export default {
             var item = {
                 name: this.$refs.input.selectedItem.name,
                 value: consumedVal,
-                nutrients: this.$refs.input.selectedItemNutrients.map(n => makeObj(n)),
+                nutrients: this.$refs.input.selectedItemNutrients.nutrients.map(n => makeObj(n)),
                 key: this.generateId(),
                 time: time ? time : new Date().getTime()
             }
@@ -106,5 +106,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+* >>> .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

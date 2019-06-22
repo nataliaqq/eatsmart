@@ -11,16 +11,16 @@
                 v-model="consumedValue"
             />
             <div>
-                g
+                g/ml
             </div>
         </div>
     </div>
+
+    <TimeActivator @onChangeTime="changeTime"/>
+
     <button @click="add()">
         Add to daily list
     </button>
-
-    <TimeActivator ref="timeActivator" @onChangeTime="changeTime"/>
-   
 </div>
 </template>
 

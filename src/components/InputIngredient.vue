@@ -20,9 +20,9 @@
         <div @click="openedList = !openedList" class="link">{{ selectedItem.name }}</div>
         <br>
         <div class="nutList" v-if="openedList">
-            <div>For 100 g:</div>
+            <div>For 100 {{ selectedItemNutrients.ru }}</div>
             <div class="table">
-                <div v-for="item in selectedItemNutrients" class="row">
+                <div v-for="item in selectedItemNutrients.nutrients" class="row">
                     <div class="cell">{{ item.name }}</div>
                     <div class="cell">{{ item.value | round }} {{ item.unit }}</div>
                 </div>
@@ -63,7 +63,7 @@ export default {
             this.getNutrition({ ndbno: this.selectedItemId })
 
             .then(response => {
-                this.fillNutrients(response.data.report.food.nutrients)
+                this.fillNutrients(response.data.report.food)
             })
         },
 

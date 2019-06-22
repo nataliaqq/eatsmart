@@ -1,21 +1,28 @@
 <template>
+<div class="content">
+  <div class="flex-center">now</div>
+  <div class="flex-center divider"> ----- or -----</div>
+  <div class="flex-vcenter">
+      <div
+        class="checkbox"
+        @click="active = !active"
+        :class="{ 'active': active }"
+      />  
+    	 <div >
+    	 	set time
+    	 </div>
 
-<div class="content flex-vcenter">
-    
-	 <div @click="active = !active">
-	 	{{ active ? 'set time' : 'now' }}
-	 </div>
-
-	<select :disabled="!active" v-model="selectedHH" @change="update()">
-	    <option v-for="n in hoursYesterday()" :value="n">
-	        {{ n }}:00 - {{ (n+1 === 24) ? '00': n+1 }}:00
-          {{ 'yesterday' }}
-	    </option>
-      <option v-for="n in hoursToday()" :value="n">
-          {{ n }}:00 - {{ (n+1 === 24) ? '00': n+1 }}:00
-          {{ 'today' }}
-      </option>
-	</select>
+    	<select :disabled="!active" v-model="selectedHH" @change="update()">
+    	    <option v-for="n in hoursYesterday()" :value="n">
+    	        {{ n }}:00 - {{ (n+1 === 24) ? '00': n+1 }}:00
+              {{ 'yesterday' }}
+    	    </option>
+          <option v-for="n in hoursToday()" :value="n">
+              {{ n }}:00 - {{ (n+1 === 24) ? '00': n+1 }}:00
+              {{ 'today' }}
+          </option>
+    	</select>
+  </div>
 </div>
 </template>
 
@@ -92,5 +99,26 @@ export default {
 select {
 	font-size: 20px;
 }
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.checkbox.active {
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox.active::after {
+  content: 'v';
+}
+
 
 </style>
