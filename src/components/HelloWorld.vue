@@ -69,7 +69,7 @@ export default {
                 value: consumedVal,
                 nutrients: this.$refs.input.selectedItemNutrients.map(n => makeObj(n)),
                 key: this.generateId(),
-                time: new Date().getTime()
+                time: time ? time : new Date().getTime()
             }
             this.consumedList.push(item)
             this.$_store_add({ key: item.key, value: item })

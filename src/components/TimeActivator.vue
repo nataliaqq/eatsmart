@@ -65,7 +65,7 @@ export default {
 
       hoursToday () {
         var h = []
-        for (var i = 0; i < this.getTodayHour(); i++) {
+        for (var i = 0; i <= this.getTodayHour(); i++) {
           h.push(i)
         }
         return h
@@ -73,7 +73,7 @@ export default {
 
       hoursYesterday () {
         var h = []
-        for (var i = this.getTodayHour(); i < 24; i++) {
+        for (var i = this.getTodayHour() + 1; i < 24; i++) {
           h.push(i)
         }
         return h

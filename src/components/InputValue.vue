@@ -20,7 +20,6 @@
     </button>
 
     <TimeActivator ref="timeActivator" @onChangeTime="changeTime"/>
-    {{ selectedTime }}
    
 </div>
 </template>
@@ -44,7 +43,7 @@ export default {
     methods: {
         add () {
             if (isNaN(this.consumedValue)) return
-            this.$emit('add', this.consumedValue)
+            this.$emit('add', this.consumedValue, this.selectedTime)
             this.clearValue()
         },
         clearValue () {
