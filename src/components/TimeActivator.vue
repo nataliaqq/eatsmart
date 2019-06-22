@@ -6,18 +6,21 @@
 	 	{{ active ? 'set time' : 'now' }}
 	 </div>
 
-	<select :disabled="!active" v-model="selectedHH">
-	    <option v-for="n in 23" :value="n">
-	        {{ n }}:00 - {{ n+1}}:00
+	<select :disabled="!active" v-model="selectedHH" @change="update()">
+	    <option v-for="n in hoursYesterday()" :value="n">
+	        {{ n }}:00 - {{ (n+1 === 24) ? '00': n+1 }}:00
+          {{ 'yesterday' }}
 	    </option>
+      <option v-for="n in hoursToday()" :value="n">
+          {{ n }}:00 - {{ (n+1 === 24) ? '00': n+1 }}:00
+          {{ 'today' }}
+      </option>
 	</select>
-
-	{{ selectedHH }}
-
 </div>
 </template>
 
 <script>
+import { generalMixin } from '../mixins/general'
 
 export default {
     name: 'InputValue',
@@ -34,10 +37,47 @@ export default {
     	}
     },
 
+    mixins: [generalMixin],
+
     methods: {
-      // onChange(val) {
-      // 	this.selectedHH = $event.target.value
-      // }  
+      update () {
+        this.$emit('onChangeTime', 
+          this.modTime()
+        )
+      },
+
+      modTime () {
+        var now = new Date()
+        var modYesterday = new Date()
+        modYesterday.setDate(modYesterday.getDate() - 1)
+        modYesterday.setHours(this.selectedHH,0)
+
+        var modToday = new Date()
+        modToday.setHours(this.selectedHH,0)
+
+        return modToday > now ? modYesterday.getTime() : modToday.getTime()
+      },
+
+      getTodayHour () {
+        var now = new Date()
+        return now.getHours()
+      },
+
+      hoursToday () {
+        var h = []
+        for (var i = 0; i < this.getTodayHour(); i++) {
+          h.push(i)
+        }
+        return h
+      },
+
+      hoursYesterday () {
+        var h = []
+        for (var i = this.getTodayHour(); i < 24; i++) {
+          h.push(i)
+        }
+        return h
+      }
     },
 
     mounted () {

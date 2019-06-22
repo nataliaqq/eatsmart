@@ -19,8 +19,8 @@
         Add to daily list
     </button>
 
-    <TimeActivator />
-
+    <TimeActivator ref="timeActivator" @onChangeTime="changeTime"/>
+    {{ selectedTime }}
    
 </div>
 </template>
@@ -32,7 +32,8 @@ export default {
     name: 'InputValue',
     data () {
         return {
-           consumedValue: 100
+           consumedValue: 100,
+           selectedTime: null
         }
     },
 
@@ -49,6 +50,10 @@ export default {
         clearValue () {
             this.consumedValue = 100
         },
+
+        changeTime (value) {
+            this.selectedTime = value
+        }
     },
 
     mounted () {

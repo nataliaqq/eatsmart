@@ -2,14 +2,18 @@
  <div>
     <div v-if="consumedList.length > 0">
         You consumed in last 24 h:
-        <div v-for="item in consumedList" class="flex"> 
-            <div class="">
-                {{ item.name }} - {{ item.value }}g
+        <div v-for="item in consumedList"> 
+            <div class="flex">
+                <div class="">
+                    {{ item.name }} - {{ item.value }}g
+                </div>
+                <div class="remove" @click="remove(item)">
+                    x
+                </div>
             </div>
-            <div class="remove" @click="remove(item)">
-                x
-            </div>
+            <div v-if="item.time">at {{ item.time | formatTime }}</div>
         </div>
+
     </div>
 
     <br>
@@ -35,6 +39,7 @@
 <script>
 
 import daily from '../data/daily.json' 
+import { generalMixin } from '../mixins/general'
 
 export default {
     name: 'ConsumedList',
@@ -52,6 +57,10 @@ export default {
             }
         }
     },
+
+    mixins: [
+        generalMixin
+    ],
 
     computed: {
         totalNutrients () {

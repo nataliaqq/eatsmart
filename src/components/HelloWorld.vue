@@ -54,7 +54,7 @@ export default {
     ],
 
     methods: {
-        add (consumedVal) {
+        add (consumedVal, time) {
             if (!this.$refs.input.selectedItem) return
             if (!consumedVal) return
 
@@ -68,7 +68,8 @@ export default {
                 name: this.$refs.input.selectedItem.name,
                 value: consumedVal,
                 nutrients: this.$refs.input.selectedItemNutrients.map(n => makeObj(n)),
-                key: this.generateId()
+                key: this.generateId(),
+                time: new Date().getTime()
             }
             this.consumedList.push(item)
             this.$_store_add({ key: item.key, value: item })

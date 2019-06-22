@@ -14,7 +14,7 @@ export const store = {
 
         	var object = {
         		value: params.value,
-        		timestamp: new Date().getTime(),
+        		timestamp: params.value.time
         	}
 			this.store.setItem(params.key, JSON.stringify(object))
         },
