@@ -26,7 +26,9 @@ body {
   max-width: 800px;
   position: relative;
   margin: 0 auto;
-  min-height: 100vh;
+  margin-top: 20px;
+  min-height: calc(100vh - 40px);
   border: 1px solid silver;
+  
 }
 </style>
