@@ -11,6 +11,10 @@ export default {
 </script>
 
 <style>
+body {
+	margin: 0;
+	padding: 0;
+}
 * {
   box-sizing: border-box;
 }
@@ -19,5 +23,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 20px;
+  max-width: 800px;
+  position: relative;
+  margin: 0 auto;
+  min-height: 100vh;
+  border: 1px solid silver;
 }
 </style>

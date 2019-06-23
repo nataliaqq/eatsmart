@@ -9,7 +9,7 @@
         :class="{ 'active': active }"
       />  
     	 <div >
-    	 	set time
+    	 	<nobr>set time</nobr>
     	 </div>
 
     	<select :disabled="!active" v-model="selectedHH" @change="update()">

@@ -35,7 +35,7 @@ export default {
 .bottom-bar {
     cursor: pointer;
     background-color: #ededed;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     right: 0;
     height: 100px;
