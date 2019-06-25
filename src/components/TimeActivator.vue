@@ -8,20 +8,22 @@
         @click="active = !active"
         :class="{ 'active': active }"
       />  
-    	 <div >
+    	 <div>
     	 	<nobr>set time</nobr>
     	 </div>
 
-    	<select :disabled="!active" v-model="selectedHH" @change="update()">
-    	    <option v-for="n in hoursYesterday()" :value="n">
-    	        {{ n }}:00 - {{ (n+1 === 24) ? '00': n+1 }}:00
-              {{ 'yesterday' }}
-    	    </option>
-          <option v-for="n in hoursToday()" :value="n">
-              {{ n }}:00 - {{ (n+1 === 24) ? '00': n+1 }}:00
-              {{ 'today' }}
-          </option>
-    	</select>
+    	<label @click="active = true">
+          <select :disabled="!active" v-model="selectedHH" @change="update()">
+      	    <option v-for="n in hoursYesterday()" :value="n">
+      	        {{ n }}:00 - {{ (n+1 === 24) ? '00': n+1 }}:00
+                {{ 'yesterday' }}
+      	    </option>
+            <option v-for="n in hoursToday()" :value="n">
+                {{ n }}:00 - {{ (n+1 === 24) ? '00': n+1 }}:00
+                {{ 'today' }}
+            </option>
+      	</select>
+      </label>
   </div>
 </div>
 </template>
@@ -40,7 +42,9 @@ export default {
 
     watch: {
     	'active' () {
-    		if (!this.active) this.selectedHH = null
+    		if (!this.active) {
+          this.selectedHH = null
+        }
     	}
     },
 
@@ -84,6 +88,10 @@ export default {
           h.push(i)
         }
         return h
+      },
+
+      activate (){
+        alert()
       }
     },
 
